@@ -8,6 +8,7 @@ var indexRouter = require('./routes/client/client.js');
 var adminRouter = require('./routes/admin/admin.js');
 
 var app = express();
+// app.use(express.static('public'))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -17,7 +18,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// 设置多个静态文件目录
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'assets')));
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
