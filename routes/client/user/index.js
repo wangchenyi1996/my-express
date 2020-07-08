@@ -30,7 +30,10 @@ router.get("/", (req, res) => {
     //     console.log(err);
     // });
 
-    res.render("login");
+    // res.render("login");
+
+    res.send({name:123})
+
 });
 
 router.get("/reg", (req, res) => {
